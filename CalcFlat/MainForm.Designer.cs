@@ -60,13 +60,13 @@ namespace CalcFlat
             this.MainGroup.Location = new System.Drawing.Point(12, 12);
             this.MainGroup.Name = "MainGroup";
             this.MainGroup.Padding = new System.Windows.Forms.Padding(10, 5, 10, 10);
-            this.MainGroup.Size = new System.Drawing.Size(360, 158);
+            this.MainGroup.Size = new System.Drawing.Size(390, 158);
             this.MainGroup.TabIndex = 0;
             this.MainGroup.TabStop = false;
             // 
             // CalcAction
             // 
-            this.CalcAction.Location = new System.Drawing.Point(266, 122);
+            this.CalcAction.Location = new System.Drawing.Point(296, 122);
             this.CalcAction.Name = "CalcAction";
             this.CalcAction.Size = new System.Drawing.Size(81, 23);
             this.CalcAction.TabIndex = 10;
@@ -76,7 +76,7 @@ namespace CalcFlat
             // 
             // ProfitBaseResultLabel
             // 
-            this.ProfitBaseResultLabel.Location = new System.Drawing.Point(224, 86);
+            this.ProfitBaseResultLabel.Location = new System.Drawing.Point(254, 86);
             this.ProfitBaseResultLabel.Name = "ProfitBaseResultLabel";
             this.ProfitBaseResultLabel.Size = new System.Drawing.Size(123, 15);
             this.ProfitBaseResultLabel.TabIndex = 9;
@@ -86,7 +86,7 @@ namespace CalcFlat
             // ProfitBaseLabel
             // 
             this.ProfitBaseLabel.AutoSize = true;
-            this.ProfitBaseLabel.Location = new System.Drawing.Point(155, 86);
+            this.ProfitBaseLabel.Location = new System.Drawing.Point(181, 86);
             this.ProfitBaseLabel.Name = "ProfitBaseLabel";
             this.ProfitBaseLabel.Size = new System.Drawing.Size(63, 15);
             this.ProfitBaseLabel.TabIndex = 8;
@@ -94,9 +94,9 @@ namespace CalcFlat
             // 
             // ProfitPercentResultLabel
             // 
-            this.ProfitPercentResultLabel.Location = new System.Drawing.Point(111, 86);
+            this.ProfitPercentResultLabel.Location = new System.Drawing.Point(126, 86);
             this.ProfitPercentResultLabel.Name = "ProfitPercentResultLabel";
-            this.ProfitPercentResultLabel.Size = new System.Drawing.Size(38, 15);
+            this.ProfitPercentResultLabel.Size = new System.Drawing.Size(49, 15);
             this.ProfitPercentResultLabel.TabIndex = 7;
             this.ProfitPercentResultLabel.Text = "0%";
             this.ProfitPercentResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -106,16 +106,18 @@ namespace CalcFlat
             this.ProfitPercentLabel.AutoSize = true;
             this.ProfitPercentLabel.Location = new System.Drawing.Point(13, 86);
             this.ProfitPercentLabel.Name = "ProfitPercentLabel";
-            this.ProfitPercentLabel.Size = new System.Drawing.Size(92, 15);
+            this.ProfitPercentLabel.Size = new System.Drawing.Size(107, 15);
             this.ProfitPercentLabel.TabIndex = 6;
-            this.ProfitPercentLabel.Text = "Проходимость:";
+            this.ProfitPercentLabel.Text = "Результативность:";
             // 
             // FlatTextBox
             // 
             this.FlatTextBox.Location = new System.Drawing.Point(224, 24);
             this.FlatTextBox.Name = "FlatTextBox";
-            this.FlatTextBox.Size = new System.Drawing.Size(123, 23);
+            this.FlatTextBox.Size = new System.Drawing.Size(153, 23);
             this.FlatTextBox.TabIndex = 5;
+            this.FlatTextBox.Text = "2";
+            this.FlatTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FlatLabel
             // 
@@ -140,7 +142,7 @@ namespace CalcFlat
             this.BasePathTextBox.Location = new System.Drawing.Point(57, 53);
             this.BasePathTextBox.Name = "BasePathTextBox";
             this.BasePathTextBox.ReadOnly = true;
-            this.BasePathTextBox.Size = new System.Drawing.Size(290, 23);
+            this.BasePathTextBox.Size = new System.Drawing.Size(320, 23);
             this.BasePathTextBox.TabIndex = 2;
             this.BasePathTextBox.DoubleClick += new System.EventHandler(this.BasePathTextBox_DoubleClick);
             // 
@@ -159,12 +161,14 @@ namespace CalcFlat
             this.BankTextBox.Name = "BankTextBox";
             this.BankTextBox.Size = new System.Drawing.Size(118, 23);
             this.BankTextBox.TabIndex = 0;
+            this.BankTextBox.Text = "10000";
+            this.BankTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 180);
+            this.ClientSize = new System.Drawing.Size(414, 180);
             this.Controls.Add(this.MainGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
