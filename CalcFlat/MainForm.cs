@@ -24,7 +24,16 @@ namespace CalcFlat
 
         private void BasePathTextBox_DoubleClick(object sender, EventArgs e)
         {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Текстовый документ|*.txt";
+            openFile.CheckFileExists = true;
 
+            DialogResult openResult = openFile.ShowDialog();
+
+            if(openResult == DialogResult.OK)
+            {
+                BasePathTextBox.Text = openFile.FileName;
+            }
         }
     }
 }
