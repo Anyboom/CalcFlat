@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using CalcFlat.Enums;
 
 namespace CalcFlat
 {
@@ -22,26 +23,47 @@ namespace CalcFlat
         {
             ulong bank = Convert.ToUInt64(BankTextBox.Text);
             byte percent = Convert.ToByte(FlatTextBox.Text);
+            string[] mainBase = default;
 
-            string[] mainBase = File.ReadAllLines(BasePathTextBox.Text);
+            if (File.Exists(BasePathTextBox.Text) == false)
+                return;
+            
+            mainBase = File.ReadAllLines(BasePathTextBox.Text);
+
+            ulong newBank = bank;
 
             foreach (string line in mainBase)
             {
-                bool symbol = line.Split(',')[0] == "+";
-                float coef = Convert.ToSingle(line.Split(',')[1].Replace(".", ","));
-                ulong bid = Convert.ToUInt64(Math.Round(bank * (percent / 100.0)));
+                Symbols symbol = line.Split(',', 2)[0] switch{
+                    "+" => Symbols.Plus,
+                    "-" => Symbols.Minus,
+                    "0" => Symbols.Zero
+                };
 
-                if (symbol)
+                float coef = Convert.ToSingle(line.Split(',', 2)[1]);
+                ulong bid = Convert.ToUInt64(Math.Round(newBank * (percent / 100.0)));
+
+                newBank = symbol switch
                 {
-                    bank += Convert.ToUInt64(Math.Round(bid * coef)) - bid;
-                }
-                else
-                {
-                    bank -= bid;
-                }
+                    Symbols.Plus => newBank + Convert.ToUInt64(Math.Round(bid * coef)) - bid,
+                    Symbols.Minus => newBank - bid,
+                    Symbols.Zero => newBank
+                };
             }
 
-            ProfitBaseResultLabel.Text = bank.ToString();
+            string result = default;
+
+            if (newBank > bank)
+            {
+                result = $"+ {Math.Truncate(((newBank - bank) / (bank * 1.0)) * 100)}%";
+            }
+            else
+            {
+                result = $"- {Math.Truncate(((bank - newBank) / (bank * 1.0)) * 100)}%";
+            }
+
+            ProfitBaseResultLabel.Text = newBank.ToString();
+            ProfitPercentResultLabel.Text = result;
         }
 
         private void BasePathTextBox_DoubleClick(object sender, EventArgs e)
